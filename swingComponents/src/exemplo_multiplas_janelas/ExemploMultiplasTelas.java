@@ -71,6 +71,7 @@ public class ExemploMultiplasTelas extends JFrame{
 					"Renê");
 			System.out.println("Nome digitado: " + nome);
 		});
+
 		panel.add(btn4);
 		JButton btn5 = new JButton("show messageDialog");
 		btn5.addActionListener(e -> {
@@ -102,7 +103,7 @@ public class ExemploMultiplasTelas extends JFrame{
 					null,
 					"Mensagem de cuidado!",
 					"Atenção!",
-					JOptionPane.WARNING_MESSAGE);
+					JOptionPane.ERROR_MESSAGE);
 		});
 		panel.add(btn7);
 		

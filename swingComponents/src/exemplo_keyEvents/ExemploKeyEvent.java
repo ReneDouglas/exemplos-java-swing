@@ -2,6 +2,8 @@ package exemplo_keyEvents;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -9,6 +11,7 @@ import javax.swing.JLabel;
 
 public class ExemploKeyEvent extends JFrame {
 	
+	private JLabel lblCenario;
 	private JLabel lblBomberman;
 	private int posX = 400;
 	private int posY = 100;
@@ -18,18 +21,34 @@ public class ExemploKeyEvent extends JFrame {
 	private boolean leftPressed = false;
 	private boolean rightPressed = false;
 	
+	private List<JLabel> bombermanLeft = new ArrayList<JLabel>();
+	private List<JLabel> bombermanRight = new ArrayList<JLabel>();
+	private List<JLabel> bombermanUp = new ArrayList<JLabel>();
+	private List<JLabel> bombermanDown = new ArrayList<JLabel>();
+	
 	public ExemploKeyEvent() {
 		super("Exemplo ImageIcon");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(null);
-		setBounds(100, 100, 800, 600);
 		
-		ImageIcon icon = new ImageIcon(getClass().getResource("/images/bomberman-abaixo-1.png"));
+		
+		ImageIcon iconCenario = new ImageIcon(getClass().getResource("/images/background.jpg"));
+		lblCenario = new JLabel(iconCenario);
+		lblCenario.setBounds(0, 0, iconCenario.getIconWidth(), iconCenario.getIconHeight());
+		
+		
+		carregarImagens();
+		
+		bombermanDown.get(0).setBounds(posX, posY, 34, 50);
+		
+		/*ImageIcon icon = new ImageIcon(getClass().getResource("/images/bomberman-abaixo-1.png"));
 		lblBomberman = new JLabel(icon);
-		lblBomberman.setBounds(posX, posY, icon.getIconWidth(), icon.getIconHeight());
+		lblBomberman.setBounds(posX, posY, icon.getIconWidth(), icon.getIconHeight());*/
 		
-		getContentPane().add(lblBomberman);
+		
+		getContentPane().add(bombermanDown.get(0));
+		getContentPane().add(lblCenario);
 		
 		addKeyListener(new KeyListener() {
 			
@@ -52,20 +71,6 @@ public class ExemploKeyEvent extends JFrame {
 			
 			@Override
 			public void keyPressed(KeyEvent e) {
-				/*if(e.getKeyCode() == KeyEvent.VK_UP) {
-					upPressed = true;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-					downPressed = true;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-					leftPressed = true;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-					rightPressed = true;
-					
-				}
-				lbl.setLocation(posX, posY);*/
 				switch(e.getKeyCode()) {
 		        	case KeyEvent.VK_UP -> upPressed = true;
 		        	case KeyEvent.VK_DOWN -> downPressed = true;
@@ -76,7 +81,19 @@ public class ExemploKeyEvent extends JFrame {
 			}
 		});
 		
+		//addMouseListener()
+		
+		setBounds(100, 100, iconCenario.getIconWidth(), iconCenario.getIconHeight());
 		setVisible(true);
+	}
+	
+	private void carregarImagens() {
+		for (int i = 0; i < 3; i++) {
+			bombermanLeft.add(new JLabel(new ImageIcon(getClass().getResource("/images/bomberman-esquerda-"+(i+1)+".png"))));
+			bombermanRight.add(new JLabel(new ImageIcon(getClass().getResource("/images/bomberman-direita-"+(i+1)+".png"))));
+			bombermanUp.add(new JLabel(new ImageIcon(getClass().getResource("/images/bomberman-acima-"+(i+1)+".png"))));
+			bombermanDown.add(new JLabel(new ImageIcon(getClass().getResource("/images/bomberman-abaixo-"+(i+1)+".png"))));
+		}
 	}
 	
 	private void atualizarPosicao() {
@@ -85,7 +102,7 @@ public class ExemploKeyEvent extends JFrame {
 	    if(leftPressed) posX-=5;
 	    if(rightPressed) posX+=5;
 	    
-	    lblBomberman.setLocation(posX, posY);
+	    bombermanDown.get(0).setLocation(posX, posY);
 	}
 
 	public static void main(String[] args) {
