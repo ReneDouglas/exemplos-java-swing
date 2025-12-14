@@ -1,4 +1,4 @@
-package exemplo_keyEvents;
+package bomberman;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
  * Esta classe demonstra como capturar teclas pressionadas e movimentar
  * um personagem (Bomberman) na tela com animação baseada na direção.
  */
-public class ExemploKeyEvent extends JFrame {
+public class BombermanKeyEvent extends JFrame {
 	
 	// Labels para exibir o cenário e o personagem
 	private JLabel lblCenario;
@@ -46,7 +46,7 @@ public class ExemploKeyEvent extends JFrame {
 	/**
 	 * Construtor da classe - inicializa a janela e configura todos os componentes.
 	 */
-	public ExemploKeyEvent() {
+	public BombermanKeyEvent() {
 		super("Exemplo ImageIcon");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null); // Centraliza a janela na tela
@@ -166,7 +166,7 @@ public class ExemploKeyEvent extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		ExemploKeyEvent ex1 = new ExemploKeyEvent();
+		BombermanKeyEvent ex1 = new BombermanKeyEvent();
 
 	}
 
