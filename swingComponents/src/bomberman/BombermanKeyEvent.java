@@ -53,6 +53,18 @@ public class BombermanKeyEvent extends JFrame {
 		setLayout(null); // Layout absoluto para posicionamento manual
 		
 		// Carrega e configura a imagem de fundo (cenário)
+		/**
+		 * Para carregar imagens e sons em Java Swing, é comum utilizar o método
+		 * getResource() da classe ClassLoader. Este método busca o recurso (imagem,
+		 * som, etc.) no classpath da aplicação.
+		 * Crie uma pasta "resources" na raiz do projeto e dentro dela crie a
+		 * estrutura de pastas "images" para armazenar as imagens utilizadas.
+		 * Certifique-se de que as imagens estejam corretamente posicionadas em
+		 * "resources/images/".
+		 * Não esqueça de adicionar a pasta "resources" como fonte de recursos no
+		 * build path do seu projeto, para que o Java possa encontrá-las em tempo de
+		 * execução.
+		 */
 		ImageIcon iconCenario = new ImageIcon(getClass().getResource("/images/background.jpg"));
 		lblCenario = new JLabel(iconCenario);
 		lblCenario.setBounds(0, 0, iconCenario.getIconWidth(), iconCenario.getIconHeight());
