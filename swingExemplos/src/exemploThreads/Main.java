@@ -1,4 +1,3 @@
-package exemploThreads;
 
 public class Main {
 

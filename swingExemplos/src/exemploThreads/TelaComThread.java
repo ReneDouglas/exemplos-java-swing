@@ -1,4 +1,3 @@
-package exemploThreads;
 
 import javax.swing.JFrame;
 

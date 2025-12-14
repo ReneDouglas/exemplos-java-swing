@@ -1,4 +1,3 @@
-package swingExemplo1;
 
 import java.awt.FlowLayout;
 

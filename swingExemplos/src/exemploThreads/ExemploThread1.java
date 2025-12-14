@@ -1,4 +1,4 @@
-package exemploThreads;
+
 
 public class ExemploThread1 extends Thread{
 	
